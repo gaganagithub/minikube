@@ -42,6 +42,7 @@ $ minikube version
 $ kubectl cluster-info
 $ minikube start
 $ kubectl cluster-info
+$ minikube start --vm-driver=docker --force
 ## 🔹STEP-7
 #### Check Minikube status
 $ minikube status
