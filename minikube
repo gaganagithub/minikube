@@ -69,3 +69,41 @@ $ kubectl apply -f pod.yml
 $ kubectl get po
 ## 🔹STEP-11
 #### Delete minikube cluster
+
+#####deployment code and nodepods menthod commands
+$ vi lohi.yml
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: mydeployments
+spec:
+   replicas: 1
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     name: deployment
+   template:
+     metadata:
+       name: testpod1
+       labels:
+         name: deployment
+     spec:
+      containers:
+        - name: c00
+          image: httpd
+          ports:
+          - containerPort: 80
+$ kubectl apply -f <filename.yaml>
+$ kubectl get deployment
+$ kubectl get pods
+$ kubectl get services
+$ kubectl expose deployment mydeployments --type=NodePort --port=80 
+ //    "                "            "      --type=ClusterIP .(cluster ip command ) //
+$ kubectl get services
+$ minikube service mydeployment --url
+$ curl ............ 
+
+##### 2nd method how to creare a pode
+$ kubectl run <pode name> --image=<image name>
+$ kubectl get pods
+$ kubectl describe pod <podename>
